@@ -39,7 +39,7 @@ namespace Website
             {
                 endpoints.MapGet("/", async context =>
                 {
-                    await context.Response.WriteAsync("Hello form ASP.NET!");
+                    await context.Response.WriteAsync("Hello from ASP.NET!");
                 });
             });
         }
