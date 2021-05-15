@@ -1,0 +1,21 @@
+Initial server setup
+https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-20-04
+
+Let's Encrypt
+https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04
+
+Install ASP.NET Core
+https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2004-
+
+Host ASP.NET Core
+https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/linux-nginx?view=aspnetcore-5.0
+
+
+
+Build script:
+    rm -rf ~/repos/Website
+    git clone https://github.com/ostomachion/Website.git
+    dotnet publish ~/repos/Website -c Release -o /var/www/dev.hufford.io/html
+
+    systemctl restart kestrel-website.service
+    nginx -s reload
