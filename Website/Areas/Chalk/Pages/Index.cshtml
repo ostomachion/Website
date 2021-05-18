@@ -1,2 +1,26 @@
 @page
-<p>Chalk test.</p>
+@model IndexModel
+
+@if (Model.Drawings.Any())
+{
+    foreach (var group in Model.Drawings)
+    {
+        <h1>@group.Key</h1>
+
+        <ul>
+            @foreach (var drawing in group)
+            {
+                <li><a asp-page="Drawing" asp-route-name="@drawing.PathName"><img src="https://picsum.photos/seed/@drawing.PathName/600/800" alt="@drawing.Name" /></a></li>
+            }
+        </ul>
+    }
+}
+else
+{
+    <p>No drawings found.</p>
+}
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/css/chalk-drawing-list.css" />
+}
